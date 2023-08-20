@@ -29,5 +29,8 @@ jobs:
         pip install -r requirements.txt
         
     - name: piptest
+      env:
+        NAME: ${{ secrets.NAME }}
       run: |
         pip list
+        echo $NAME
