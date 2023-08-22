@@ -1,10 +1,14 @@
 FROM python:3.10
 
+ARG DJANGO_SECRET_KEY
+
 LABEL version ="1.0"
 LABEL maintainer="gouzigou"
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+
+ENV DJANGO_SECRET_KEY $DJANGO_SECRET_KEY
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 

@@ -51,3 +51,5 @@ jobs:
         context: .
         push: true
         tags: registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
+        build-args: |
+            DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
