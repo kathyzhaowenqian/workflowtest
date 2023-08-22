@@ -54,20 +54,20 @@ jobs:
         build-args: |
             DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
 
-    - name: ssh deploy
-      # You may pin to the exact commit or the version.
-      # uses: easingthemes/ssh-deploy@3884c8554ff45c0fd37d3f12a76288d06ce7a2ff
-      uses: easingthemes/ssh-deploy@v4.1.8
-      with:
-        # Private key part of an SSH key pair,ssh 连接密钥 去除上下两行
-        SSH_PRIVATE_KEY: ${{ secrets.ACCESS_KEY_SECRET }}
-        # Remote host 服务器ip
-        REMOTE_HOST: ${{ secrets.ECS_CLUSTER_ID }}
-        # Remote user   #root
-        REMOTE_USER: ${{ secrets.ACCESS_KEY_ID }} 
+    # - name: ssh deploy
+    #   # You may pin to the exact commit or the version.
+    #   # uses: easingthemes/ssh-deploy@3884c8554ff45c0fd37d3f12a76288d06ce7a2ff
+    #   uses: easingthemes/ssh-deploy@v4.1.8
+    #   with:
+    #     # Private key part of an SSH key pair,ssh 连接密钥 去除上下两行
+    #     SSH_PRIVATE_KEY: ${{ secrets.ACCESS_KEY_SECRET }}
+    #     # Remote host 服务器ip
+    #     REMOTE_HOST: ${{ secrets.ECS_CLUSTER_ID }}
+    #     # Remote user   #root
+    #     REMOTE_USER: ${{ secrets.ACCESS_KEY_ID }} 
         
-        # Target directory,把当前的项目代码目标拷贝到Target目录 /opt/DjangoChatGPTAPI
-        TARGET:  "/opt/workflowtest"
+    #     # Target directory,把当前的项目代码目标拷贝到Target目录 /opt/DjangoChatGPTAPI
+    #     TARGET:  "/opt/workflowtest"
         
         #跑一些脚本
  	      #SCRIPT_AFTER: |
