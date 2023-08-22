@@ -70,7 +70,7 @@ jobs:
         TARGET:  "/opt/workflowtest"
         
         #跑一些脚本
- 	      SCRIPT_AFTER: |
+ 	      #SCRIPT_AFTER: |
 
           #docker login --username=${{ secrets.ALIYUN_NAME }} registry.cn-shanghai.aliyuncs.com --password=${{ secrets.ALIYUN_PASSWORD }}
-          docker pull registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
+          #docker pull registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
