@@ -70,8 +70,8 @@ jobs:
         
         # Target directory,把当前的项目代码目标拷贝到Target目录 /opt/DjangoChatGPTAPI
         TARGET:  "/opt/workflowtest"
-
- 	      SCRIPT_AFTER: |
+        
+        SCRIPT_AFTER: |
           docker login --username=${{ secrets.ALIYUN_NAME }} registry.cn-shanghai.aliyuncs.com --password=${{ secrets.ALIYUN_PASSWORD }}
           docker pull registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
       
