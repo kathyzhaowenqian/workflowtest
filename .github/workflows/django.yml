@@ -74,4 +74,7 @@ jobs:
         SCRIPT_AFTER: |
           docker login --username=${{ secrets.ALIYUN_NAME }} registry.cn-shanghai.aliyuncs.com --password=${{ secrets.ALIYUN_PASSWORD }}
           docker pull registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
-      
+          docker compose -f /opt/workflowtest/docker-compose.yml down
+          docker rm -f workflow1
+          docker rmi registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
+          docker compose -f /opt/workflowtest/docker-compose.yml up -d
