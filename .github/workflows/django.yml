@@ -3,9 +3,7 @@ name: Workflowtest
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+  
 jobs:
   build:
 
@@ -22,18 +20,6 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-        
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        
-    - name: piptest
-      env:
-        NAME: ${{ secrets.NAME }}
-      run: |
-        pip list
-        echo $NAME
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -75,7 +61,7 @@ jobs:
           docker compose -f /opt/workflowtest/docker-compose.yml down
           docker rm -f workflow1
           docker rmi registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
-          
+
           docker login --username=${{ secrets.ALIYUN_NAME }} registry.cn-shanghai.aliyuncs.com --password=${{ secrets.ALIYUN_PASSWORD }}
           docker pull registry.cn-shanghai.aliyuncs.com/pmrdjango/workflowtest:0.1
 
